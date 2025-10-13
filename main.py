@@ -1,16 +1,10 @@
-# This is a sample Python script.
+from openai import OpenAI
+api_key = "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"
+client = OpenAI(api_key=api_key)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+response = client.responses.create(
+    model="gpt-5",
+    input="Write a one-sentence bedtime story about a unicorn."
+)
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(response.output_text)
